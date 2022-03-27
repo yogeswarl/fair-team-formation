@@ -4,16 +4,13 @@ import matplotlib.pyplot as plt
 from collections import Counter
 df = pd.read_json('toy.v12.dblp.json')
 working_df = pd.DataFrame(columns=["name", "id"])
-name, id = [], []
+Author_name, Author_id = [], []
 for i,index in enumerate(df["authors"]):
     for j in index:
-        name.append(j["name"])
-        id.append(j["id"])
-new_dest = dict(zip(name, id))
-x = Counter(name)
-# y = np.sin(x)
-Counter(name).values()
-
+        Author_name.append(j["name"])
+        Author_id.append(j["id"])
+x = Counter(Author_name)
+print(Counter(Author_id))
 x_reverse = dict(sorted(x.items(), key=lambda item: item[1], reverse=True))
-plt.plot(Counter(x_reverse).values())
+plt.plot(list(Counter(x_reverse).values()))
 plt.show()
