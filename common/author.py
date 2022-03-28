@@ -24,9 +24,10 @@ class Author(object):
 
     def set_teams(self):
         teams = set()
-        for author in self.team_authors:
-           if(self.name!= author["name"]):
-               teams.add(author["name"])
+        if len(self.team_authors) > 1:
+            for author in self.team_authors:
+                if(self.name!= author["name"]):
+                    teams.add(author["name"])
         return teams
     def get_teams(self):
         return self.teams
