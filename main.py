@@ -18,12 +18,7 @@ for i,index in enumerate(df["authors"]):
 author_Instance = []
 for _, index in enumerate(df["authors"]):
     for author in index:
-        author_Instance.append(Author(author["name"], author["id"],df["fos"][_]))
-
-
-
-
-
-
-
+        author_Instance.append(Author(author["name"], author["id"],df["fos"][_],index))
+for obj in author_Instance:
+    print(obj.get_teams())
 
