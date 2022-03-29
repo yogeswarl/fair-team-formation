@@ -1,3 +1,4 @@
+import os
 from collections import Counter
 import matplotlib.pyplot as plt
 Author_name, Author_id = [], []
@@ -12,4 +13,5 @@ def plot_stats(df):
     plt.plot(list(Counter(x_reverse).values()))
     plt.xlabel("Number of Authors")
     plt.ylabel("Number of labels published")
-    plt.show()
+    plt.title("Popularity Bias of paper publication by author")
+    plt.savefig('./output/graph',dpi=300)

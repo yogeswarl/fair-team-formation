@@ -31,4 +31,3 @@ class Author(object):
         return teams
     def get_teams(self):
         return self.teams
-
