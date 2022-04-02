@@ -14,6 +14,6 @@ author_Instance = []
 for _, index in enumerate(df["authors"]):
     for author in index:
         author_Instance.append(Author(author["name"], author["id"], df["fos"][_], index))
-list_of_skills = ["image_processing","deep_learning"]
-distribution_list,item_attributes =form_teams_with_skills(list_of_skills,author_Instance)
-reranking_logic(item_attributes,distribution_list,2)
+list_of_skills = ["image_segmentation"]
+distribution_list,item_attributes = form_teams_with_skills(list_of_skills,author_Instance)
+reranking_logic(item_attributes,distribution_list,2) #change last parameter to get number of authors for paper.

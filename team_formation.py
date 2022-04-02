@@ -1,6 +1,6 @@
 def get_distribution(authorList):
     distribution_list = {}
-    distribution_value = (100/len(list(set(authorList))))/100
+    distribution_value = 1/len(list(set(authorList)))
     for author in list(set(authorList)):
         distribution_list[author] = distribution_value
     return distribution_list
