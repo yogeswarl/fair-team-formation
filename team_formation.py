@@ -13,7 +13,7 @@ def form_teams_with_skills(list_of_skills, author_Instance):
             if list in author.get_skills():
                 author_list.append(author.id)
     distribution_list = get_distribution(author_list)
-    print(author_list)
-    print(distribution_list)
+    print(f"initial ranked author list: {author_list}")
+    print(f"equalised distribution list: {distribution_list}")
     return distribution_list, author_list
 
