@@ -16,4 +16,7 @@ for _, index in enumerate(df["authors"]):
         author_Instance.append(Author(author["name"], author["id"], df["fos"][_], index))
 list_of_skills = ["image_segmentation"]
 distribution_list,item_attributes = form_teams_with_skills(list_of_skills,author_Instance)
-reranking_logic(item_attributes,distribution_list,2) #change last parameter to get number of authors for paper.
+author_id = list()
+for author in author_Instance:
+    author_id.append(Author.get_author_id(author))
+reranking_logic(item_attributes,distribution_list,4,len(author_Instance),author_id)

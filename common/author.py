@@ -10,9 +10,10 @@ class Author(object):
         self.teams = self.set_teams()
         self.skills = self.set_skills()
 
-    def set_author_popularity(self):
+    def get_author_id(self):
         return self.id
-
+    def get_author_popularity(self):
+        return self.count
     def set_skills(self):
         skills = set()
         for skill in self.fos:
