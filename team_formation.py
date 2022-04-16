@@ -1,19 +1,22 @@
-def get_distribution(authorList):
-    distribution_list = {}
-    distribution_value = 1/len(list(set(authorList)))
-    for author in list(set(authorList)):
-        distribution_list[author] = distribution_value
-    return distribution_list
+from collections import Counter
 
-def form_teams_with_skills(list_of_skills, author_Instance):
+def convert_author_id_to_attributes(authorList,author_id):
+    author_id_to_dictionary = {}
+    author_id_count = dict(Counter(author_id))
+    for i in authorList:
+        if i in author_id_count:
+            if author_id_count[i] > 3:
+                author_id_to_dictionary[i] = "p"
+            else:
+                author_id_to_dictionary[i] = "np"
+    return author_id_to_dictionary
+
+def form_teams_with_skills(list_of_skills, author_Instance,author_id):
     list_of_skills = [list.title() for list in list_of_skills]
     author_list = []
     for list in list_of_skills:
         for author in author_Instance:
             if list in author.get_skills():
                 author_list.append(author.id)
-    distribution_list = get_distribution(author_list)
-    print(f"initial ranked author list: {author_list}")
-    print(f"equalised distribution list: {distribution_list}")
-    return distribution_list, author_list
-
+    author_id_to_dictionary = convert_author_id_to_attributes(author_list,author_id)
+    return author_list,author_id_to_dictionary
