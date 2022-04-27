@@ -9,7 +9,7 @@ from experiment.experiment import experimental_metrics
 print('loading DF')
 author_Instance =list()
 author_id = list()
-with open('dblp.v12.json', "r", encoding='utf-8') as jf:
+with open('toy.v12.dblp.json', "r", encoding='utf-8') as jf:
     for line in jf:
         try:
             if not line: break

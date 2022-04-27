@@ -18,5 +18,6 @@ def form_teams_with_skills(list_of_skills, author_Instance,author_id):
         for author in author_Instance:
             if list_item in author.get_skills():
                 author_list.append(author.id)
+    print(f'suggested author list: {list(set(author_list))[:4]}')
     author_id_to_dictionary = convert_author_id_to_attributes(author_list,author_id)
     return author_list,author_id_to_dictionary
