@@ -1,6 +1,7 @@
 from collections import Counter
 
 def convert_author_id_to_attributes(authorList,author_id):
+    print(f'suggested author list: {list(set(authorList))[:4]}')
     author_id_to_dictionary = dict()
     author_id_count = dict(Counter(author_id))
     for i in authorList:
