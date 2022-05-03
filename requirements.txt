@@ -1,4 +1,8 @@
-numpy==1.21.0
-pandas==1.4.1
-matplotlib==3.5.1
+numpy
+pandas
+matplotlib
+scipy
 reranking~=0.3.6
+torch
+pytrec_eval
+sklearn
