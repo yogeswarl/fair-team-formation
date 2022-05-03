@@ -3,11 +3,16 @@ from sklearn.metrics import multilabel_confusion_matrix, f1_score, classificatio
 from sklearn.metrics import roc_curve
 import pytrec_eval
 import pandas as pd
+import matplotlib.pyplot as plt
+
 
 def calculate_metrics(Y, Y_, per_instance=False, metrics={'P_2,5,10', 'recall_2,5,10', 'ndcg_cut_2,5,10', 'map_cut_2,5,10'}):
     # eval_met = dict(zip(metrics, [None]*len(metrics)))
     aucroc, fpr, tpr = calculate_auc_roc(Y, Y_)
-
+    plt.plot(fpr,tpr,label=f'micro-average on reranked set', linestyle=':', linewidth=4)
+    plt.ylabel('True Positive Rate')
+    plt.xlabel('False Positive Rate')
+    plt.savefig(f'./output/roc-curve.png')
     # qrel = dict(); run = dict()
     # print(f'Building pytrec_eval input for {Y.shape[0]} instances ...')
     # for i, (y, y_) in enumerate(zip(Y, Y_)):
