@@ -48,7 +48,8 @@ for counter,row_list,deep_copy in zip(range(len(prediction_list)),prediction_lis
 ndkl_results = pd.DataFrame(result_store)
 final_reranked_prediction_list = np.asarray(final_reranked_prediction_list)
 ndkl_results.to_csv('./output/reranked-ndkl.csv',index=None,header=["row number", "NDKL Before", "NDKL After"])
-# df, df_mean, (fpr, tpr) = calculate_metrics(Y, final_reranked_prediction_list, False)
-auc_score = calculate_metrics(Y, final_reranked_prediction_list, False)
-print(auc_score) #0.6782544378698225
-# df.to_csv(f'./output/test.pred.eval.csv', float_format='%.15f')
+df, df_mean, (fpr, tpr) = calculate_metrics(Y, final_reranked_prediction_list, False)
+# auc_score = calculate_metrics(Y, final_reranked_prediction_list, False)
+# print(auc_score) #0.6782544378698225
+print(df_mean)
+df_mean.to_csv(f'./output/test.pred.eval.csv', float_format='%.15f')
